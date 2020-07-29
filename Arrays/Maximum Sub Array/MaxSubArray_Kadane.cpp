@@ -10,7 +10,7 @@ using namespace std;
 int kadane(int *arr,int n)
 {
     int maximum=arr[0],sum = arr[0];
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
         sum = max(arr[i], sum+arr[i]);
         if(sum > maximum)

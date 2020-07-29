@@ -31,8 +31,8 @@ int kadane(int *arr,int n)
 
 int main()
 {
-    int n = 8;
-    int arr[] = {-2, -3, -4, 1, -12, -1, -5, -3};
+    int n = 2;
+    int arr[] = {-1,2};
     cout<<kadane(arr,n);
     return 0;
 }

@@ -1,19 +1,22 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 int main()
 {
 	//Method 1
 	int arr1[3][2] = {{10, 20},
 				    {30, 40},
 				    {50, 60}};
-	for(int i=0;i<3;i++)
+	for(int i=0;i<3;i++)	
 	{
 		for(int j=0;j<2;j++)
 			cout<<arr1[i][j]<<" ";
 		cout<<endl;
 	}
 	cout<<endl;
+
+	
 	
 	//Method 2
 	int arr2[3][2] = {1, 2, 3, 4, 5, 6}; //stores these in row major

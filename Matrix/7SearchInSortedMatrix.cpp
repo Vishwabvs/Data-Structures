@@ -31,7 +31,7 @@ void search_efficient(int *arr[], int m, int n, int x)
             cout<<"Found at ("<<i<<", "<<j<<")"<<endl;
             return;
         }
-        else if(arr[i][i]>x)
+        else if(arr[i][j]>x)
             j--;
         else
             i++;

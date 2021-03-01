@@ -1,0 +1,48 @@
+Node* divide(int N, Node *head){
+        // code here
+        if(head == NULL || head->next == NULL)
+            return head;
+        //cout<<"HI";
+        Node* even_head = NULL;
+        Node* odd_head = NULL;
+        Node* even = NULL;
+        Node* odd = NULL;
+        Node* ptr = head;
+        while(ptr!=NULL)
+        {
+            if(ptr->data % 2 == 0)
+            {
+                if(even_head == NULL)
+                {
+                    even_head = ptr;
+                    even = even_head;
+                }
+                else
+                {
+                    even->next = ptr;
+                    even = even->next;
+                }
+            }
+            else
+            {
+                if(odd_head == NULL)
+                {
+                    odd_head = ptr;
+                    odd = odd_head;
+                }
+                else
+                {
+                    odd->next = ptr;
+                    odd = odd->next;
+                }
+            }
+            ptr = ptr->next;
+        }
+        if(odd)
+            odd->next = NULL;
+        if(even)
+            even->next = odd_head;
+        else
+            even_head = odd_head;
+        return even_head;
+    }

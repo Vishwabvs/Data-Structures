@@ -1,0 +1,23 @@
+//Given a sorted linked list, we need to insert a value into the linked list such that the linkedlist remains sorted
+//https://practice.geeksforgeeks.org/problems/insert-in-a-sorted-list/1#
+Node* sortedInsert(struct Node* head, int data) {
+    // Code here
+    Node* temp = new Node(data);
+    if(head == NULL)
+    {
+        return temp;
+    }
+    if(data < head->data)
+    {
+        temp->next = head;
+        return temp;
+    }
+    Node* ptr = head;
+    while(ptr->next != NULL && data > ptr->next->data)
+    {
+        ptr = ptr->next;
+    }
+    temp->next = ptr->next;
+    ptr->next = temp;
+    return head;
+}

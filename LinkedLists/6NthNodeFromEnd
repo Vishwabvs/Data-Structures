@@ -1,0 +1,41 @@
+Given a linkedlist, find the value in nth node from the end
+
+int getNthFromLast(Node *head, int n)
+{
+    //two traversals
+    int count = 0;
+    Node* curr = head;
+    while(curr != NULL)
+    {
+        curr = curr->next;
+        count++;
+    }
+    if(count < n)
+        return -1;
+    curr = head;
+    int i = 0;
+    while(i < count - n)
+    {
+        curr = curr->next;
+        i++;
+    }
+    return curr->data;
+}
+int getNthFromLast(Node *head, int n)
+{
+    //single traversal
+    Node *slow = head, *fast = head;
+    int i;
+    for(i = 0; i < n && fast!=NULL; i++)
+    {
+        fast = fast->next;
+    }
+    if(i != n)
+        return -1;
+    while(fast!=NULL)
+    {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    return slow->data;
+}

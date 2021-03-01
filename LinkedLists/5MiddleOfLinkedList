@@ -1,0 +1,36 @@
+//Given a linkedlist print the value in the middle node of the linkedlist. If there are even nodes, print the second middle node
+
+int middleNode(Node* head)
+{
+    //requires two traversals
+    if(head == NULL)
+        return -1;
+    Node* curr = head;
+    int count = 0;
+    while(curr)
+    {
+        count++;
+        curr = curr->next;
+    }
+    curr = head;
+    int i = 0;
+    while(i < count/2)
+    {
+        curr = curr->next;
+    }
+    return curr->val;
+}
+int middleNode(Node* head)
+{
+    //requires only one traversal
+    if(head == NULL)
+        return -1;
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow->val;
+}

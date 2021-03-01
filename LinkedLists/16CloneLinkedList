@@ -1,0 +1,23 @@
+//Using HashMap O(n) time and O(n) space
+Node *copyList(Node *head) {
+    // Your code here
+    if(head == NULL)
+        return NULL;
+    unordered_map<Node*,Node*> hm;
+    Node* cloneCurr = NULL;
+    for(Node* curr = head; curr != NULL; curr = curr->next)
+    {
+        hm[curr] = new Node(curr->data);
+    }
+    for(Node* curr = head; curr != NULL; curr = curr->next)
+    {
+        cloneCurr = hm[curr];
+        cloneCurr->next = hm[curr->next];
+        cloneCurr->arb = hm[curr->arb];
+    }
+    Node* head2 = hm[head];
+    return head2;
+}
+
+
+//O(n) time and O(1) space

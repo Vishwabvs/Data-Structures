@@ -1,0 +1,41 @@
+struct Node* reverse(struct Node *head)
+{
+    // code here
+    // return head of reversed list
+    if(head == NULL || head->next == NULL)
+        return head;
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* next;
+    while(curr!=NULL)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
+
+bool isPalindrome(Node *head)
+{
+    //Your code here
+    if(head == NULL)
+        return true;
+    Node *slow = head, *fast = head;
+    while(fast != NULL && fast->next != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    Node* rev = reverse(slow);
+    Node* curr = head;
+    while(rev)
+    {
+        if(curr->data != rev->data)
+            return false;
+        curr = curr->next;
+        rev = rev->next;
+    }
+    return true;
+}

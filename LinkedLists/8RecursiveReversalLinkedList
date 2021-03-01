@@ -1,0 +1,20 @@
+//reversing a linked list using recursion
+
+Node* reverse(Node* head)
+{
+    if(head->next == NULL)
+        return head;
+    Node* rest_head = reverseList(head->next);
+    Node* rest_tail = head->next;
+    rest_tail->next = head;
+    head->next = NULL;
+    return rest_head;
+}
+Node *reverse(Node *curr,Node *prev)
+{
+    if(curr==NULL)
+        return prev;
+    Node *next=curr->next;
+    curr->next=prev;
+    return recRevL(next,curr);
+}
